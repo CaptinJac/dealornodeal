@@ -15,17 +15,14 @@ class Briefcase:            #Creating the class for the briefcase
     def __str__(self):
         return f"{self.number}({self.value})"           #If we print case as a string for debug purposes  # noqa: E501
 
-def create_cases(amount, values):           #Create each case with a random value 
-    counter = 0 
+def create_cases(values):           #Create each case with a random value 
     cases = []
-    while counter < amount:
-        randomvalue = values[randint(0 , len(values) - 1)]          #Get random value and remove it from the possible list of other values  # noqa: E501
-        briefcase = Briefcase(counter + 1, randomvalue) 
+    for x in range(len(values)):
+        randomvalue = values[randint(0, len(values) - 1)]
+        briefcase = Briefcase(x + 1, randomvalue)
         values.remove(randomvalue)
         cases.append(briefcase)
-        counter = counter + 1
-    return cases            #returns a list of all cases with random values
+    return cases          #returns a list of all cases with random values
 
 
 ### Simple Script thaat creates and randomizes the values that each case can have
-
